@@ -1,25 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/core/styles';
-import theme from '../../src/theme';
+/*
+ * @Author: gofive
+ * @Date: 2020-09-18 02:05:10
+ * @LastEditTime: 2020-09-18 20:27:33
+ * @Description: Todo
+ */
+import React from "react";
+import PropTypes from "prop-types";
+import { Helmet } from "react-helmet";
+import Layout from "../../src/components/Layout";
 
-export default function TopLayout(props) {
+export default function TopLayout({ children, ...props }) {
   return (
     <React.Fragment>
       <Helmet>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-        <link
-          href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
-          rel="stylesheet"
-        />
+        <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width' />
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap' rel='stylesheet' />
       </Helmet>
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        {props.children}
-      </ThemeProvider>
+      <Layout {...props}>{children}</Layout>
     </React.Fragment>
   );
 }
