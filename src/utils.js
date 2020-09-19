@@ -1,10 +1,6 @@
 import routers from "./routers";
 
-export function tabIndexByLocation() {
-  console.log(routers);
-
-  return routers.findIndex((a) => {
-    console.log(a.link);
-    return "/about/".includes(a.link);
-  });
+export function tabIndexByLocation(pathname) {
+  const paths = pathname.split("/");
+  return routers.findIndex((a) => a.link === `/${paths[1]}`);
 }

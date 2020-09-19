@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import Header from "./Header";
 import { createMuiTheme, ThemeProvider, CssBaseline } from "@material-ui/core";
 
@@ -19,12 +20,24 @@ const theme = createMuiTheme({
   },
 });
 
-export default function Layout({ children }) {
+export default function Layout({ tabval, children }) {
   return (
-    <ThemeProvider theme={theme}>
+    <>
+      <Helmet>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
       <CssBaseline />
-      <Header tab={0} />
-      {children}
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Header tabval={tabval} />
+        {children}
+      </ThemeProvider>
+    </>
   );
 }

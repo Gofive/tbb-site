@@ -1,9 +1,3 @@
-/*
- * @Author: gofive
- * @Date: 2020-09-18 02:05:10
- * @LastEditTime: 2020-09-18 19:21:05
- * @Description: Todo
- */
 import React from "react";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
@@ -13,13 +7,13 @@ import Link from "../components/Link";
 import Copyright from "../components/Copyright";
 import Layout from "../components/Layout";
 
-export default function About() {
+export default function Course() {
   return (
-    <Layout tabval={1}>
+    <Layout tabval={3}>
       <Container maxWidth="sm">
         <Box my={4}>
           <Typography variant="h4" component="h1" gutterBottom>
-            About Me!
+            Course Me!
           </Typography>
           <ProTip />
           <Copyright />

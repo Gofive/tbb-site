@@ -1,28 +1,22 @@
-/*
- * @Author: gofive
- * @Date: 2020-09-18 19:35:57
- * @LastEditTime: 2020-09-18 20:22:53
- * @Description: Todo
- */
 const routers = [
   {
     name: "首页",
-    link: "/index",
+    link: "/",
   },
   {
     name: "关于我们",
     link: "/about",
   },
   {
-    name: "早教中心",
+    name: "成长中心",
     link: "/school",
   },
   {
-    name: "幼儿课件",
+    name: "幼儿教育",
     link: "/course",
   },
   {
-    name: "幼儿周边",
+    name: "周边玩具",
     link: "/toy",
   },
   {
