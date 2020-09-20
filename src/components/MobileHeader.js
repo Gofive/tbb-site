@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import { ReactComponent as LogoSvg } from "../assets/logo-single.svg";
 import { Close, Dehaze } from "@material-ui/icons";
-import { blue, grey, yellow } from "@material-ui/core/colors";
+import { amber, blue, grey } from "@material-ui/core/colors";
 import routers from "../routers";
 import { navigate } from "gatsby";
 
@@ -40,11 +40,12 @@ const Logo = styled(Box)({
   width: 160,
   height: 80,
   color: blue[400],
-  backgroundColor: yellow[200],
+  backgroundColor: amber[100],
   borderRadius: "100% 100% 100% 100% / 0% 0% 40% 40%",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  zIndex: 10000,
 });
 
 const Accordion = withStyles({

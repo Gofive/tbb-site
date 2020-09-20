@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import MobileHeader from "./MobileHeader";
 import { amber, blue } from "@material-ui/core/colors";
+import Footer from "./Footer";
 
 const theme = createMuiTheme({
   palette: {
@@ -66,6 +67,7 @@ export default function Layout({ mobile, tabval, children }) {
           </>
         )}
         {children}
+        <Footer />
       </ThemeProvider>
     </>
   );

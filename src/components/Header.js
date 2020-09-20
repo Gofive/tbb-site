@@ -8,9 +8,10 @@ import {
   styled,
 } from "@material-ui/core";
 import { ReactComponent as LogoSvg } from "../assets/logo-single.svg";
-import { amber, blue, grey, purple, yellow } from "@material-ui/core/colors";
+import { amber, blue, grey } from "@material-ui/core/colors";
 import routers from "../routers";
 import { navigate } from "gatsby";
+import LangSwitcher from "./LangSwitcher";
 
 const HeaderDiv = styled(Box)({
   width: "100%",
@@ -23,7 +24,8 @@ const HeaderDiv = styled(Box)({
 });
 
 const HeaderMain = styled(Box)({
-  maxWidth: 1024,
+  maxWidth: 1280,
+  width: "100%",
   display: "flex",
   justifyContent: "center",
 });
@@ -32,12 +34,13 @@ const Logo = styled(Box)({
   width: 160,
   height: 80,
   color: blue[400],
-  backgroundColor: amber[200],
+  backgroundColor: amber[100],
   borderRadius: "100% 100% 100% 100% / 0% 0% 40% 40%",
   margin: "0 48px",
   "&:hover": {
     cursor: "pointer",
   },
+  zIndex: 10000,
 });
 
 const StyledTab = withStyles({
@@ -61,10 +64,22 @@ const StyledTabs = withStyles({
   flexContainer: {
     height: "100%",
   },
+  root: {
+    marginRight: 48,
+  },
 })((props) => <Tabs {...props} />);
+
+const LangBox = styled(Box)({
+  display: "flex",
+  flexDirection: "row-reverse",
+  marginRight: 48,
+  flexGrow: 1,
+  flexShrink: 0,
+});
 
 export default function Header(props) {
   const theme = useTheme();
+
   return (
     <HeaderDiv>
       <HeaderMain>
@@ -86,6 +101,9 @@ export default function Header(props) {
             />
           ))}
         </StyledTabs>
+        <LangBox>
+          <LangSwitcher />
+        </LangBox>
       </HeaderMain>
     </HeaderDiv>
   );
