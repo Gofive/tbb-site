@@ -8,10 +8,9 @@ import {
   styled,
 } from "@material-ui/core";
 import { ReactComponent as LogoSvg } from "../assets/logo-single.svg";
-import { blue, yellow } from "@material-ui/core/colors";
+import { amber, blue, grey, purple, yellow } from "@material-ui/core/colors";
 import routers from "../routers";
 import { navigate } from "gatsby";
-import { tabIndexByLocation } from "../utils";
 
 const HeaderDiv = styled(Box)({
   width: "100%",
@@ -33,21 +32,28 @@ const Logo = styled(Box)({
   width: 160,
   height: 80,
   color: blue[400],
-  backgroundColor: yellow[200],
+  backgroundColor: amber[200],
   borderRadius: "100% 100% 100% 100% / 0% 0% 40% 40%",
   margin: "0 48px",
+  "&:hover": {
+    cursor: "pointer",
+  },
 });
 
 const StyledTab = withStyles({
   root: {
     textTransform: "none",
     "&:hover": {
-      color: (props) => props.hover, //鼠标下Tab的颜色
+      color: `${blue[400]}`, //鼠标下Tab的颜色
     },
     minWidth: "unset",
   },
+
   wrapper: {
     fontSize: "1rem",
+  },
+  textColorPrimary: {
+    color: grey[800],
   },
 })((props) => <Tab {...props} />);
 
@@ -62,14 +68,14 @@ export default function Header(props) {
   return (
     <HeaderDiv>
       <HeaderMain>
-        <Logo>
+        <Logo onClick={() => navigate("/")}>
           <LogoSvg fill={blue[500]} width={160} height={70} />
         </Logo>
         <StyledTabs
           value={props.tabval}
-          indicatorColor="primary"
+          variant="scrollable"
           textColor="primary"
-          centered
+          indicatorColor="primary"
           onChange={(_, value) => navigate(routers[value].link)}
         >
           {routers.map((tmp) => (

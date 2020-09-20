@@ -1,9 +1,5 @@
 const routers = [
   {
-    name: "首页",
-    link: "/",
-  },
-  {
     name: "关于我们",
     link: "/about",
   },
@@ -16,7 +12,7 @@ const routers = [
     link: "/course",
   },
   {
-    name: "周边玩具",
+    name: "妙趣周边",
     link: "/toy",
   },
   {
