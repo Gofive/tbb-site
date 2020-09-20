@@ -8,7 +8,7 @@ import {
   styled,
 } from "@material-ui/core";
 import { ReactComponent as LogoSvg } from "../assets/logo-single.svg";
-import { amber, blue, grey } from "@material-ui/core/colors";
+import { blue, grey } from "@material-ui/core/colors";
 import routers from "../routers";
 import { navigate } from "gatsby";
 import LangSwitcher from "./LangSwitcher";
@@ -34,7 +34,7 @@ const Logo = styled(Box)({
   width: 160,
   height: 80,
   color: blue[400],
-  backgroundColor: amber[100],
+  backgroundColor: blue[400],
   borderRadius: "100% 100% 100% 100% / 0% 0% 40% 40%",
   margin: "0 48px",
   "&:hover": {
@@ -84,7 +84,7 @@ export default function Header(props) {
     <HeaderDiv>
       <HeaderMain>
         <Logo onClick={() => navigate("/")}>
-          <LogoSvg fill={blue[500]} width={160} height={70} />
+          <LogoSvg fill="white" width={160} height={70} />
         </Logo>
         <StyledTabs
           value={props.tabval}

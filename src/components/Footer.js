@@ -3,17 +3,16 @@ import {
   Container,
   Divider,
   Grid,
-  Paper,
   styled,
   Typography,
 } from "@material-ui/core";
-import { amber, blue } from "@material-ui/core/colors";
+import { blue, grey } from "@material-ui/core/colors";
 import { ReactComponent as Wechat } from "../assets/wechat.svg";
 import { ReactComponent as Weibo } from "../assets/weibo.svg";
 import React from "react";
 
 const BgBox = styled(Box)({
-  backgroundColor: amber[100],
+  backgroundColor: grey[100],
 });
 
 const FtItem = styled(Typography)({

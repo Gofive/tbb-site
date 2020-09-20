@@ -2,12 +2,9 @@ import React from "react";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import ProTip from "../components/ProTip";
-import Copyright from "../components/Copyright";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { styled } from "@material-ui/core";
+import Carousel from "nuka-carousel";
+import { blue } from "@material-ui/core/colors";
 
 const SliderBox = styled(Box)({
   height: 300,
@@ -16,36 +13,51 @@ const SliderBox = styled(Box)({
   },
 });
 
-const SliderItem = styled(Box)({
-  height: 330,
-  backgroundImage: (props) => `url(${props.url})`,
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
+const CarouselItem = styled("img")({
+  objectFit: "cover",
 });
 
 export default function Index() {
   return (
     <>
       <SliderBox>
-        <Slider
+        <Carousel
+          renderCenterLeftControls={() => null}
+          renderCenterRightControls={() => null}
           autoplay
-          slidesToShow={1}
-          slidesToScroll={1}
-          dots
-          arrows={false}
+          wrapAround
+          defaultControlsConfig={{
+            pagingDotsStyle: {
+              fill: blue[400],
+              outline: "none",
+            },
+          }}
         >
-          <SliderItem url="https://dl.tunbaobao.com/img/slider1.jpeg" />
-          <SliderItem url="https://dl.tunbaobao.com/img/slider2.jpeg" />
-          <SliderItem url="https://dl.tunbaobao.com/img/slider3.jpeg" />
-        </Slider>
+          <CarouselItem
+            onClick={() => console.log("1")}
+            alt="1"
+            height="300px"
+            src="https://dl.tunbaobao.com/img/slider1.jpeg"
+          />
+          <CarouselItem
+            onClick={() => console.log("2")}
+            alt="2"
+            height="300px"
+            src="https://dl.tunbaobao.com/img/slider2.jpeg"
+          />
+          <CarouselItem
+            onClick={() => console.log("3")}
+            alt="3"
+            height="300px"
+            src="https://dl.tunbaobao.com/img/slider3.jpeg"
+          />
+        </Carousel>
       </SliderBox>
       <Container maxWidth="lg">
         <Box my={4}>
           <Typography variant="h4" component="h1" gutterBottom>
             Tbb Me!
           </Typography>
-          <ProTip />
-          <Copyright />
         </Box>
       </Container>
     </>

@@ -14,6 +14,7 @@ import { Close, Dehaze } from "@material-ui/icons";
 import { amber, blue, grey } from "@material-ui/core/colors";
 import routers from "../routers";
 import { navigate } from "gatsby";
+import LangSwitcher from "./LangSwitcher";
 
 const SwitchBt = withStyles({
   root: {
@@ -84,6 +85,7 @@ const AccordionSummary = withStyles({
     "&$expanded": {
       margin: "12px 0",
     },
+    justifyContent: "space-between",
   },
   expanded: {},
 })(MuiAccordionSummary);
@@ -124,6 +126,7 @@ export default function MobileHeader(props) {
         <Logo>
           <LogoSvg fill={blue[500]} width={160} height={60} />
         </Logo>
+        <LangSwitcher />
       </AccordionSummary>
       <AccordionDetails>
         <NavBox>
