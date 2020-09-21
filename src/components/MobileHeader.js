@@ -11,10 +11,20 @@ import {
 } from "@material-ui/core";
 import { ReactComponent as LogoSvg } from "../assets/logo-single.svg";
 import { Close, Dehaze } from "@material-ui/icons";
-import { amber, blue, grey } from "@material-ui/core/colors";
+import { blue, grey } from "@material-ui/core/colors";
 import routers from "../routers";
 import { navigate } from "gatsby";
 import LangSwitcher from "./LangSwitcher";
+
+const MobileBox = styled(Box)({
+  "@media (min-width: 900px)": {
+    display: "none",
+  },
+  position: "fixed",
+  top: 0,
+  zIndex: 1,
+  width: "100%",
+});
 
 const SwitchBt = withStyles({
   root: {
@@ -38,10 +48,9 @@ const DisableFocusBt = withStyles({
 })((props) => <Button {...props} />);
 
 const Logo = styled(Box)({
-  width: 160,
+  width: 140,
   height: 80,
-  color: blue[400],
-  backgroundColor: amber[100],
+  backgroundColor: (props) => (props.alpha ? "transparent" : blue[400]),
   borderRadius: "100% 100% 100% 100% / 0% 0% 40% 40%",
   display: "flex",
   alignItems: "center",
@@ -51,6 +60,7 @@ const Logo = styled(Box)({
 
 const Accordion = withStyles({
   root: {
+    backgroundColor: (props) => (props.alpha ? "transparent" : "white"),
     "&:hover": {
       cursor: "default !important",
     },
@@ -70,9 +80,11 @@ const Accordion = withStyles({
 
 const AccordionSummary = withStyles({
   root: {
-    backgroundColor: "white",
-    boxShadow:
-      "0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);",
+    backgroundColor: (props) => (props.alpha ? "transparent" : "white"),
+    boxShadow: (props) =>
+      props.alpha
+        ? "none"
+        : "0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)",
     height: 64,
     "&$expanded": {
       height: 64,
@@ -92,6 +104,7 @@ const AccordionSummary = withStyles({
 
 const AccordionDetails = withStyles((theme) => ({
   root: {
+    backgroundColor: "white",
     padding: 0,
     transition: "unset",
   },
@@ -112,38 +125,70 @@ const NavBox = styled(Box)({
   },
 });
 
-export default function MobileHeader(props) {
+const LangBox = styled(Box)({
+  display: "flex",
+  flexDirection: "row-reverse",
+  flexGrow: 1,
+  flexShrink: 0,
+});
+
+export default function MobileHeader({ tabval }) {
+  const [alpha, setAlpha] = React.useState(null);
+  const [preTabval, setPreTabval] = React.useState(null);
   const [expanded, setExpanded] = React.useState(false);
-  const { tabval } = props;
+
+  const memoizedCallback = React.useCallback(() => {
+    if (window.scrollY > 5) {
+      setAlpha(0);
+    } else {
+      setAlpha(1);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    if (!tabval) {
+      window.addEventListener("scroll", memoizedCallback);
+    } else {
+      window.removeEventListener("scroll", memoizedCallback);
+    }
+  }, [tabval, memoizedCallback]);
+
+  if (tabval !== preTabval) {
+    setPreTabval(tabval);
+    setAlpha(tabval ? 0 : 1);
+  }
   return (
-    <Accordion square expanded={expanded}>
-      <AccordionSummary
-        expandIcon={<SwitchBt>{expanded ? <Close /> : <Dehaze />}</SwitchBt>}
-        IconButtonProps={{ onClick: () => setExpanded(!expanded) }}
-        aria-controls="panel1a-content"
-        id="panel1a-header"
-      >
-        <Logo>
-          <LogoSvg fill={blue[500]} width={160} height={60} />
-        </Logo>
-        <LangSwitcher />
-      </AccordionSummary>
-      <AccordionDetails>
-        <NavBox>
-          {routers.map((a, idx) => (
-            <DisableFocusBt
-              color={tabval === idx ? "primary" : "default"}
-              onClick={() => {
-                navigate(a.link);
-                setExpanded(false);
-              }}
-              key={a.link}
-            >
-              {a.name}
-            </DisableFocusBt>
-          ))}
-        </NavBox>
-      </AccordionDetails>
-    </Accordion>
+    <MobileBox>
+      <Accordion alpha={alpha} square expanded={expanded}>
+        <AccordionSummary
+          alpha={alpha}
+          expandIcon={<SwitchBt>{expanded ? <Close /> : <Dehaze />}</SwitchBt>}
+          IconButtonProps={{ onClick: () => setExpanded(!expanded) }}
+          aria-controls='panel1a-content'
+          id='panel1a-header'>
+          <Logo alpha={alpha} onClick={() => navigate("/")}>
+            <LogoSvg fill={alpha ? blue[400] : "white"} width={140} height={60} />
+          </Logo>
+          <LangBox>
+            <LangSwitcher />
+          </LangBox>
+        </AccordionSummary>
+        <AccordionDetails>
+          <NavBox>
+            {routers.map((a, idx) => (
+              <DisableFocusBt
+                color={tabval - 1 === idx ? "primary" : "default"}
+                onClick={() => {
+                  navigate(a.link);
+                  setExpanded(false);
+                }}
+                key={a.link}>
+                {a.name}
+              </DisableFocusBt>
+            ))}
+          </NavBox>
+        </AccordionDetails>
+      </Accordion>
+    </MobileBox>
   );
 }

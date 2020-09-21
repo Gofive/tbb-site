@@ -6,7 +6,7 @@ export function tabIndexByLocation(pathname) {
     return false;
   }
   const paths = pathname.split("/");
-  return routers.findIndex((a) => a.link === `/${paths[1]}`);
+  return routers.findIndex((a) => a.link === `/${paths[1]}`) + 1;
 }
 
 export function isMobile() {
