@@ -1,3 +1,9 @@
+/*
+ * @Author: gofive
+ * @Date: 2020-09-21 08:57:54
+ * @LastEditTime: 2020-09-22 16:31:47
+ * @Description: Todo
+ */
 import React from "react";
 import { Helmet } from "react-helmet";
 import Header from "./Header";
@@ -10,6 +16,13 @@ import Footer from "./Footer";
 const ChildBox = styled("div")({
   marginTop: (props) => (props.margin ? 64 : 0),
   position: "relative",
+  display: "flex",
+  flexDirection: "column",
+  minHeight: "calc(100vh - 64px)",
+});
+
+const Content = styled("div")({
+  flexGrow: 1,
 });
 
 const theme = createMuiTheme({
@@ -50,8 +63,11 @@ export default function Layout({ tabval, children }) {
       <ThemeProvider theme={theme}>
         <Header tabval={tabval} client />
         <MobileHeader tabval={tabval} client />
-        <ChildBox margin={tabval ? 1 : 0}>{children}</ChildBox>
-        <Footer />
+        <ChildBox margin={tabval ? 1 : 0}>
+          <Content>{children}</Content>
+
+          <Footer />
+        </ChildBox>
       </ThemeProvider>
     </>
   );

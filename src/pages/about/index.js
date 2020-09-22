@@ -17,7 +17,7 @@ const CarouselItem = styled("img")({
   objectFit: "cover",
 });
 
-export default function Index() {
+export default function About() {
   return (
     <>
       <SliderBox>

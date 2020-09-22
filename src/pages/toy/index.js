@@ -5,9 +5,9 @@ import Box from "@material-ui/core/Box";
 
 export default function Toy() {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth='lg'>
       <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
+        <Typography variant='h4' component='h1' gutterBottom>
           Play Me!
         </Typography>
       </Box>

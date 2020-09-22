@@ -1,9 +1,3 @@
-/*
- * @Author: gofive
- * @Date: 2020-09-21 08:57:54
- * @LastEditTime: 2020-09-21 13:40:56
- * @Description: Todo
- */
 import React from "react";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";

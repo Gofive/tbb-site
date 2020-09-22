@@ -13,7 +13,7 @@ const routers = [
   },
   {
     name: "妙趣周边",
-    link: "/toy",
+    link: "/404",
   },
   {
     name: "联系我们",
