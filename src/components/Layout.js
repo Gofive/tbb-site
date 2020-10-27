@@ -34,6 +34,10 @@ const theme = createMuiTheme({
       main: amber[200],
     },
   },
+  typography: { 
+    htmlFontSize: 16,
+  },
+
   props: {
     MuiButtonBase: {
       disableRipple: true,
@@ -44,6 +48,7 @@ const theme = createMuiTheme({
       "@global": {
         html: {
           WebkitFontSmoothing: "auto",
+          fontSize:"62.5%"
         },
       },
     },
@@ -51,6 +56,7 @@ const theme = createMuiTheme({
 });
 
 export default function Layout({ tabval, children }) {
+  
   return (
     <>
       <Helmet>
