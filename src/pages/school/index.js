@@ -36,6 +36,8 @@ import jcsjimg from "../../assets/school/jcsj.jpg"
 
 import awardsimg from "../../assets/school/awards.png"
 
+import wechatimg from "../../assets/school/wechat.jpg"
+
 import 'video-react/dist/video-react.css';
 
 
@@ -117,7 +119,8 @@ const useStyles = makeStyles({
     fontSize: "1.0rem",
     letterSpacing: "0.1rem",
     lineHeight: "1.5rem"
-  }
+  },
+
 });
 
 
@@ -129,6 +132,16 @@ const SliderBox = styled(Box)({
 });
 const CarouselItem = styled("img")({
   objectFit: "cover",
+});
+
+const FixedBox = styled(Box)({
+  position: "fixed",
+  float: "right",
+  top: "55vh",
+  width: "100%",
+  "@media (max-width: 900px)": {
+    visibility: "hidden"
+  },
 });
 
 
@@ -205,6 +218,25 @@ export default function School() {
           <CarouselItem alt='3' height='400px' src={bannar3} />
         </Carousel>
       </SliderBox>
+      <FixedBox>
+        <div style={{
+          float: "right",
+          border: "0.1rem solid #33ccff",
+          borderRadius: "1rem",
+          width: "120px",
+          backgroundColor: "#fff",
+          textAlign: "center",
+          color: "#000",
+          fontWeight: "600",
+          fontSize: "0.8rem",
+          padding: "10px 3px",
+
+        }}>
+          <img src={wechatimg} width="90%" style={{ textAlign: "center", padding: "5px" }} />
+          <div>招商热线</div>
+          <div>0551-63533400</div>
+        </div>
+      </FixedBox>
       <Container maxWidth='lg'>
 
         <SectionModule>
@@ -216,9 +248,9 @@ export default function School() {
             </Grid>
             <Grid item xs={12} sm={12} md={4}>
               <div className={classes.companyIntro}>
-                <Typography className={classes.companyIntroP} gutterBottom variant="p" component="p">
+                <p className={classes.companyIntroP} >
                   豚宝宝成长中心隶属于大型国有出版企业安徽出版集团（A股代码：600551），豚宝宝品牌专注于为 0-6 岁中国亲子家庭提供早期教育全产业链服务，是早期教育领域的国家队。
-                </Typography>
+                </p>
               </div>
             </Grid>
           </Grid>
@@ -226,7 +258,7 @@ export default function School() {
 
         <SectionModule>
           <SectionTitle>
-            <Typography variant="p" component="p"> 豚宝宝5+1课程体系</Typography>
+            <span> 豚宝宝5+1课程体系</span>
           </SectionTitle>
           <SectionContent>
 
@@ -239,7 +271,6 @@ export default function School() {
                         <CardMedia
                           className={classes.img}
                           image={item.imgsrc}
-                          title="Contemplative Reptile"
                         />
                         <CardContent>
                           <Typography className={classes.title} variant="h5" component="h5">
@@ -270,7 +301,7 @@ export default function School() {
 
         <SectionModule>
           <SectionTitle>
-            <Typography variant="p" component="p">宝贝的成长中心</Typography>
+            <span>宝贝的成长中心</span>
           </SectionTitle>
           <SectionContent>
 
@@ -301,10 +332,10 @@ export default function School() {
               }
             </Grid>
           </SectionContent>
-        </SectionModule> 
+        </SectionModule>
         <SectionModule>
           <SectionTitle>
-            <Typography variant="p" component="p">豚宝宝共获43项大奖</Typography>
+            <span>豚宝宝共获43项大奖</span>
             <SectionSubTitle>其中<span style={{ color: "#ff9933" }}>27项</span>为国家级奖项，<span style={{ color: "#ff9933" }}>16项</span>为省一级奖项</SectionSubTitle>
           </SectionTitle>
           <SectionContent>
