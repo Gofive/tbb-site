@@ -1,20 +1,18 @@
 import React from "react";
 import Container from "@material-ui/core/Container";
-import Grid from '@material-ui/core/Grid' 
+import Grid from '@material-ui/core/Grid'
 import Box from "@material-ui/core/Box";
-import { styled } from "@material-ui/core";
-import Carousel from "nuka-carousel";
-import { blue } from "@material-ui/core/colors";
+import { styled } from "@material-ui/core"; 
 import { withStyles } from '@material-ui/core/styles';
 import Zmage from 'react-zmage'
 
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
-import TabContext from '@material-ui/lab/TabContext'; 
+import TabContext from '@material-ui/lab/TabContext';
 import TabPanel from '@material-ui/lab/TabPanel';
 
 import { SectionModule, SectionContent } from '../../components/SectionModule'
- 
+
 
 import bannar1 from '../../assets/school/jcsj/top.jpg'
 
@@ -43,9 +41,9 @@ import pxhd2img from '../../assets/school/jcsj/pxhd/2.jpg'
 import pxhd3img from '../../assets/school/jcsj/pxhd/3.jpg'
 import pxhd4img from '../../assets/school/jcsj/pxhd/4.jpg'
 
- 
 
- 
+
+
 
 const AntTab = withStyles((theme) => ({
   root: {
@@ -88,13 +86,24 @@ const AntTabs = withStyles({
 
 
 const SliderBox = styled(Box)({
-  height: 400,
+  "@media (max-width: 900px)": {
+    height: "200px"
+  },
+  "@media (min-width: 900px)": {
+    height: "400px"
+  },
   "& .slick-slider": {
     height: "100%",
   },
 });
 const CarouselItem = styled("img")({
   objectFit: "cover",
+  "@media (max-width: 900px)": {
+    height: "200px"
+  },
+  "@media (min-width: 900px)": {
+    height: "400px"
+  },
 });
 
 
@@ -147,7 +156,7 @@ const picList = [
   }
 ]
 
-export default function JcsjDetail() { 
+export default function JcsjDetail() {
   const [value, setValue] = React.useState("1");
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -157,27 +166,14 @@ export default function JcsjDetail() {
   return (
     <>
       <SliderBox>
-        <Carousel
-          renderCenterLeftControls={() => null}
-          renderCenterRightControls={() => null}
-          autoplay
-          wrapAround
-          defaultControlsConfig={{
-            pagingDotsStyle: {
-              fill: blue[400],
-              outline: "none",
-            },
-          }}>
-          <CarouselItem alt='1' height='400px' src={bannar1} />
-          <CarouselItem alt='1' height='400px' src={bannar1} />
-        </Carousel>
+        <CarouselItem alt='1' width="100%" src={bannar1} />
       </SliderBox>
       <Container maxWidth='lg'>
 
-        <SectionModule>  
-          <SectionContent> 
+        <SectionModule>
+          <SectionContent>
             <TabContext value={value}>
-              <AntTabs 
+              <AntTabs
                 variant="scrollable"
                 scrollButtons="auto"
                 onChange={handleChange}
@@ -193,7 +189,7 @@ export default function JcsjDetail() {
                         position: "absolute",
                         borderLeft: "20px solid transparent",
                         borderRight: "20px solid transparent",
-                        borderBottom: "30px solid #f0f8ff",
+                        borderBottom: "30px solid #f0f6fb",
                         width: "0px",
                         height: "0px",
                         left: "30%"
@@ -201,7 +197,7 @@ export default function JcsjDetail() {
                     />
 
                 }}
-                >
+              >
                 {picList.map(item => {
 
                   return (<AntTab
@@ -213,7 +209,7 @@ export default function JcsjDetail() {
                           margin: "1.0rem 0",
                           paddingBottom: "0.5rem",
                           color: value === item.value ? "#fff" : "#000",
-                          minWidth:"6.0rem"
+                          minWidth: "6.0rem"
                         }}
                       >
                         <div
@@ -230,61 +226,61 @@ export default function JcsjDetail() {
                 )
                 }
               </AntTabs>
-              <div>
-                {picList.map(item => {
+              {picList.map(item => {
 
-                  return (
-                    <TabPanel
-                      key={item.value}
-                      value={item.value}
+                return (
+                  <TabPanel
+                    key={item.value}
+                    value={item.value}
+                    style={{
+                      backgroundColor: "#f0f6fb",
+                      borderRadius: "2rem",
+                      marginTop: "2%"
+                    }}
+                  >
+                    <Grid
+                      container
+                      spacing={3}
                       style={{
-                        backgroundColor: "#f0f8ff",
-                        borderRadius: "2rem",
-                        marginTop:"2%",
-                        padding: "0% 5%"
+                        padding: "0% 2%"
                       }}
                     >
-                      <Grid
-                        container
-                        spacing={3}
-                      >
-                        {
-                          item.picList.map((subitem, index) => {
-                            return (
-                              <Grid
-                                key={index}
-                                item xs={12} sm={12} md={4} >
-                                <div style={{
-                                  padding: "2% 5%",
-                                  height: "100%"
-                                }}>
-                                  <Zmage
-                                    controller={{ 
-                                      close: true, 
-                                      zoom: false, 
-                                      download: false, 
-                                      rotate: false, 
-                                      flip: false, 
-                                      pagination: false,
-                                    }}
-                                    backdrop="#ffffff99"
-                                    edge={200}
-                                    radius={5}
-                                    src={subitem}
-                                    width="100%"
-                                    style={{
-                                      borderRadius: "1rem",
-                                    }} />
-                                </div>
-                              </Grid>
-                            )
-                          })
-                        }
+                      {
+                        item.picList.map((subitem, index) => {
+                          return (
+                            <Grid
+                              key={index}
+                              item xs={12} sm={12} md={4} >
+                              <div style={{
+                                padding: "2% 5%",
+                                height: "100%"
+                              }}>
+                                <Zmage
+                                  controller={{
+                                    close: true,
+                                    zoom: false,
+                                    download: false,
+                                    rotate: false,
+                                    flip: false,
+                                    pagination: false,
+                                  }}
+                                  backdrop="#ffffffee"
+                                  edge={200}
+                                  radius={5}
+                                  src={subitem}
+                                  width="100%"
+                                  style={{
+                                    borderRadius: "1rem",
+                                  }} />
+                              </div>
+                            </Grid>
+                          )
+                        })
+                      }
 
-                      </Grid>
-                    </TabPanel>)
-                })}
-              </div>
+                    </Grid>
+                  </TabPanel>)
+              })}
             </TabContext>
           </SectionContent>
         </SectionModule>

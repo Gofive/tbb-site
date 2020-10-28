@@ -4,8 +4,15 @@ import React from "react";
  
 
 const SectionModuleStyle = styled(Box)({
-    marginTop: "5.0rem",
-    marginBottom: "5.0rem"
+    "@media (max-width: 900px)": {
+        marginTop: "3.0rem",
+        marginBottom: "3.0rem"
+    },
+    "@media (min-width: 901px)": {
+        marginTop: "5.0rem",
+        marginBottom: "5.0rem"
+    },
+    
 });
 
 const SectionTitleStyle = styled(Box)({
@@ -35,7 +42,13 @@ const SectionSubTitleStyle = styled(Box)({
 });
 
 const SectionContentStyle = styled(Box)({
-    marginTop: "3rem"
+    
+    "@media (max-width: 900px)": {
+        marginTop: "2rem"
+    },
+    "@media (min-width: 901px)": {
+        marginTop: "3rem"
+    },
 });
 
 

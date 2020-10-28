@@ -86,6 +86,8 @@ export default function Header({ tabval }) {
   const [preTabval, setPreTabval] = React.useState(null);
 
   const memoizedCallback = React.useCallback(() => {
+    if (window === undefined)
+      return;
     if (window.scrollY > 5) {
       setAlpha(0);
     } else {
@@ -94,6 +96,8 @@ export default function Header({ tabval }) {
   }, []);
 
   React.useEffect(() => {
+    if (window === undefined)
+      return;
     if (!tabval) {
       window.addEventListener("scroll", memoizedCallback);
     } else {

@@ -138,6 +138,9 @@ export default function MobileHeader({ tabval }) {
   const [expanded, setExpanded] = React.useState(false);
 
   const memoizedCallback = React.useCallback(() => {
+    
+    if (window === undefined)
+      return;
     if (window.scrollY > 5) {
       setAlpha(0);
     } else {
@@ -146,6 +149,8 @@ export default function MobileHeader({ tabval }) {
   }, []);
 
   React.useEffect(() => {
+    if (window === undefined)
+      return;
     if (!tabval) {
       window.addEventListener("scroll", memoizedCallback);
     } else {

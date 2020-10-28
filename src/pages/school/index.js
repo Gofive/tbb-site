@@ -33,8 +33,19 @@ import xyjimg from '../../assets/school/xyj.jpg'
 import wdjsimg from "../../assets/school/wdjs.jpg"
 import jcsjimg from "../../assets/school/jcsj.jpg"
 
+import honor1img from "../../assets/school/honor/1.png"
+import honor2img from "../../assets/school/honor/2.png"
+import honor3img from "../../assets/school/honor/3.png"
+import honor4img from "../../assets/school/honor/4.png"
+import honor5img from "../../assets/school/honor/5.png"
+import honor6img from "../../assets/school/honor/6.png"
+import honor7img from "../../assets/school/honor/7.png"
+import honor8img from "../../assets/school/honor/8.png"
+import honor9img from "../../assets/school/honor/9.png"
+import honor10img from "../../assets/school/honor/10.png"
+import honor11img from "../../assets/school/honor/11.png"
+import honor12img from "../../assets/school/honor/12.png"
 
-import awardsimg from "../../assets/school/awards.png"
 
 import wechatimg from "../../assets/school/wechat.jpg"
 
@@ -48,15 +59,15 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     margin: "auto",
-    backgroundColor: "#F0FFFF",
+    backgroundColor: "#f0f6fb",
     height: "100%",
     color: "#000a",
 
     "@media (max-width: 900px)": {
 
-      fontSize: "1.0rem",
+      fontSize: "0.7rem",
       letterSpacing: "0.1rem",
-      lineHeight: "1.5rem",
+      lineHeight: "1.2rem",
     },
     "@media (min-width: 901px)": {
 
@@ -66,8 +77,12 @@ const useStyles = makeStyles({
     },
   },
   companyIntroP: {
-
-    padding: "0 10%",
+    "@media (max-width: 900px)": {
+      padding: "0 0%",
+    },
+    "@media (min-width: 901px)": {
+      padding: "0 10%",
+    },
 
   },
 
@@ -76,11 +91,17 @@ const useStyles = makeStyles({
     margin: "0px auto 35px auto",
     border: "0",
     boxShadow: "0px 0px 0px 0px rgba(0,0,0,0)",
-    backgroundColor: "#fafafa"
+    backgroundColor: "#fafafa",
+    cursor: "pointer"
 
   },
   img: {
-    height: 300,
+    "@media (max-width: 900px)": {
+      height: 250,
+    },
+    "@media (min-width: 901px)": {
+      height: 300,
+    },
     borderRadius: "1rem"
   },
   zxcard: {
@@ -92,7 +113,13 @@ const useStyles = makeStyles({
 
   },
   zximg: {
-    height: 400,
+    "@media (max-width: 900px)": {
+      height: 250,
+    },
+    "@media (min-width: 901px)": {
+      height: 400,
+    },
+    
   },
   title: {
     fontWeight: 1000,
@@ -125,13 +152,25 @@ const useStyles = makeStyles({
 
 
 const SliderBox = styled(Box)({
-  height: 400,
+  "@media (max-width: 900px)": {
+    height: "200px"
+  },
+  "@media (min-width: 900px)": {
+    height: "400px"
+  },
   "& .slick-slider": {
     height: "100%",
   },
 });
 const CarouselItem = styled("img")({
   objectFit: "cover",
+  cursor: "default",
+  "@media (max-width: 900px)": {
+    height: "200px"
+  },
+  "@media (min-width: 900px)": {
+    height: "400px"
+  },
 });
 
 const FixedBox = styled(Box)({
@@ -197,6 +236,22 @@ const centerList = [
   },
 
 ]
+
+const honorList = [
+  honor1img,
+  honor2img,
+  honor3img,
+  honor4img,
+  honor5img,
+  honor6img,
+  honor7img,
+  honor8img,
+  honor9img,
+  honor10img,
+  honor11img,
+  honor12img,
+
+]
 export default function School() {
   const classes = useStyles();
   return (
@@ -213,9 +268,9 @@ export default function School() {
               outline: "none",
             },
           }}>
-          <CarouselItem alt='1' height='400px' src={bannar1} />
-          <CarouselItem alt='2' height='400px' src={bannar2} />
-          <CarouselItem alt='3' height='400px' src={bannar3} />
+          <CarouselItem alt='1' src={bannar1} />
+          <CarouselItem alt='2' src={bannar2} />
+          <CarouselItem alt='3' src={bannar3} />
         </Carousel>
       </SliderBox>
       <FixedBox>
@@ -232,7 +287,7 @@ export default function School() {
           padding: "10px 3px",
 
         }}>
-          <img src={wechatimg} width="90%" style={{ textAlign: "center", padding: "5px" }} />
+          <img src={wechatimg} width="90%" alt="" style={{ textAlign: "center", padding: "5px" }} />
           <div>招商热线</div>
           <div>0551-63533400</div>
         </div>
@@ -316,8 +371,7 @@ export default function School() {
                         >
                           <CardMedia
                             className={classes.zximg}
-                            image={item.imgsrc}
-                            title="Contemplative Reptile"
+                            image={item.imgsrc} 
                           />
                           <CardContent>
                             <Typography className={classes.title} variant="h5" component="h5">
@@ -339,7 +393,28 @@ export default function School() {
             <SectionSubTitle>其中<span style={{ color: "#ff9933" }}>27项</span>为国家级奖项，<span style={{ color: "#ff9933" }}>16项</span>为省一级奖项</SectionSubTitle>
           </SectionTitle>
           <SectionContent>
-            <img src={awardsimg} alt="" width="100%" />
+            <div>
+              <Grid container spacing={4}>
+                {
+                  honorList.map(item => {
+                    return (
+                      <Grid item xs={6} sm={4} md={3} key={item} style={{ textAlign: "center" }}>
+                        <img
+                          src={item}
+                          width="90%"
+                          alt=""
+                          style={{
+                            borderRadius: "1rem",
+                            border: "0.06rem solid #33ccff",
+                            backgroundColor: "#f0f6fb"
+                          }}
+                        />
+                      </Grid>
+                    )
+                  })
+                }
+              </Grid>
+            </div>
           </SectionContent>
         </SectionModule>
 

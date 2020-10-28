@@ -7,6 +7,8 @@ import { pink, amber, purple } from "@material-ui/core/colors";
 export default function About() {
   const [size, setSize] = useState({ x: 0, y: 0 });
   const ResizeFunc = useCallback(() => {
+    if (window === undefined)
+      return;
     console.log(window.innerWidth, window.innerHeight);
     setSize({ x: window.innerWidth });
     const video = document.querySelector("#tbb-v");
@@ -23,6 +25,8 @@ export default function About() {
     }
   }, []);
   useEffect(() => {
+    if (window === undefined)
+      return;
     window.addEventListener("resize", ResizeFunc);
     setSize({ x: window.innerWidth });
     const video = document.querySelector("#tbb-v");

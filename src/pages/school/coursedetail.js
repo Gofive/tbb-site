@@ -3,9 +3,8 @@ import Container from "@material-ui/core/Container";
 import Grid from '@material-ui/core/Grid'
 import Box from "@material-ui/core/Box";
 import { styled } from "@material-ui/core";
-import Carousel from "nuka-carousel";
-import { blue } from "@material-ui/core/colors";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { SectionModule, SectionTitle, SectionContent } from '../../components/SectionModule'
 
 
@@ -71,10 +70,10 @@ const useStyles = makeStyles({
 
     "@media (max-width: 900px)": {
 
-      fontSize: "1.0rem",
+      fontSize: "0.3rem",
       letterSpacing: "0.1rem",
-      lineHeight: "1.5rem",
-      backgroundColor: "#33ccff88",
+      lineHeight: "1.2rem",
+      backgroundColor: "#f0f6fb",
     },
     "@media (min-width: 901px)": {
 
@@ -129,7 +128,6 @@ const useStyles = makeStyles({
     marginTop: "10px",
   },
 
-
   description: {
     margin: "auto",
     fontSize: "1.6rem",
@@ -137,14 +135,27 @@ const useStyles = makeStyles({
     lineHeight: "2.4rem",
     height: "100%",
     float: "left",
-    padding: "0 10%"
+    "@media (max-width: 900px)": {
+      padding: "0 1%"
+    },
+    "@media (min-width: 901px)": {
+      padding: "0 10%"
+    },
   },
 
   descriptionTitle: {
     color: "#000",
     fontWeight: 1000,
-    fontSize: "1.5rem",
-    letterSpacing: "0.11rem",
+
+    "@media (max-width: 900px)": {
+      fontSize: "1.2rem",
+      letterSpacing: "0.11rem",
+    },
+    "@media (min-width: 901px)": {
+      fontSize: "1.5rem",
+      letterSpacing: "0.11rem",
+    },
+
   },
   descriptionSubTitle: {
     fontWeight: 800,
@@ -152,6 +163,75 @@ const useStyles = makeStyles({
     fontSize: "0.8rem",
     lineHeight: "1.6rem",
     letterSpacing: "0.1rem",
+  },
+
+  tabLable: {
+
+    "@media (max-width: 900px)": {
+      margin: "0.3rem 0",
+      paddingBottom: "0.2rem",
+      minWidth: "5.0rem"
+    },
+    "@media (min-width: 901px)": {
+      margin: "0.5rem 0",
+      paddingBottom: "0.3rem",
+      minWidth: "8.0rem"
+    },
+
+  },
+  tabTitle: {
+
+    "@media (max-width: 900px)": {
+      fontSize: "0.6rem",
+      fontWeight: "1000",
+      lineHeight: "1.2rem"
+    },
+    "@media (min-width: 901px)": {
+      fontSize: "1.3rem",
+      fontWeight: "1000",
+      lineHeight: "1.9rem"
+    },
+  },
+  tabImg:{
+
+    "@media (max-width: 900px)": {
+      padding:"0 2%"
+    },
+    "@media (min-width: 901px)": {
+      padding:"0 5%"
+    },
+  },
+  tabTitleen: {
+
+    "@media (max-width: 900px)": {
+      fontSize: "0.4rem",
+      fontWeight: "300",
+      lineHeight: "0.8rem"
+    },
+    "@media (min-width: 901px)": {
+
+      fontSize: "1.0rem",
+      fontWeight: "300",
+      lineHeight: "1.2rem"
+    },
+  },
+  subItemStyle: {
+    borderRadius: "10px",
+    height: "100%",
+    "@media (max-width: 900px)": {
+      padding: "2%",
+    },
+    "@media (min-width: 901px)": {
+      padding: "5%",
+    },
+  },
+  subItemImgStyle:{
+    "@media (max-width: 900px)": {
+      width: "25%",
+    },
+    "@media (min-width: 901px)": {
+      width: "40%",
+    },
   }
   ,
   descriptionText: {
@@ -219,13 +299,24 @@ const AntTabs = withStyles({
 
 
 const SliderBox = styled(Box)({
-  height: 400,
+  "@media (max-width: 900px)": {
+    height: "200px"
+  },
+  "@media (min-width: 900px)": {
+    height: "400px"
+  },
   "& .slick-slider": {
     height: "100%",
   },
 });
 const CarouselItem = styled("img")({
   objectFit: "cover",
+  "@media (max-width: 900px)": {
+    height: "200px"
+  },
+  "@media (min-width: 900px)": {
+    height: "400px"
+  },
 });
 
 
@@ -431,6 +522,8 @@ const courseList = [
 ]
 
 export default function CourseDetail() {
+  const matches = useMediaQuery('(min-width:900px)');
+
   const classes = useStyles();
   const [value, setValue] = React.useState("1");
   const handleChange = (event, newValue) => {
@@ -441,20 +534,7 @@ export default function CourseDetail() {
   return (
     <>
       <SliderBox>
-        <Carousel
-          renderCenterLeftControls={() => null}
-          renderCenterRightControls={() => null}
-          autoplay
-          wrapAround
-          defaultControlsConfig={{
-            pagingDotsStyle: {
-              fill: blue[400],
-              outline: "none",
-            },
-          }}>
-          <CarouselItem alt='1' height='400px' src={bannar1} />
-          <CarouselItem alt='1' height='400px' src={bannar1} />
-        </Carousel>
+        <CarouselItem alt='1' width="100%" src={bannar1} />
       </SliderBox>
       <Container maxWidth='lg'>
 
@@ -469,10 +549,10 @@ export default function CourseDetail() {
           <SectionContent>
 
             <Grid container >
-              <Grid item xs={12} sm={12} md={3}>
+              <Grid item xs={3} sm={3} md={3}>
                 <img src={haitunimg} alt="" width="100%" />
               </Grid>
-              <Grid item xs={12} sm={12} md={9}>
+              <Grid item xs={9} sm={9} md={9}>
                 <div className={classes.companyIntro}>
                   <p className={classes.companyIntroP}>
                     豚宝宝坚持“遵循天性，科学育儿”的育儿理念，以世
@@ -498,7 +578,7 @@ export default function CourseDetail() {
           </div>
           <SectionContent>
             <Grid container >
-              <img src={kctximg} alt="" width="90%" />
+              <img src={kctximg} alt="" width="100%" />
             </Grid>
           </SectionContent>
 
@@ -506,7 +586,9 @@ export default function CourseDetail() {
             <TabContext value={value}>
               <AntTabs
                 onChange={handleChange}
-                centered={true}
+                centered={matches ? true : false}
+                variant={matches ? undefined : "scrollable"}
+                scrollButtons={matches ? undefined : "on"}
                 value={value}
                 style={{ backgroundColor: "#eae5e5" }}
                 TabIndicatorProps={{
@@ -519,7 +601,7 @@ export default function CourseDetail() {
                         position: "absolute",
                         borderLeft: "30px solid transparent",
                         borderRight: "30px solid transparent",
-                        borderBottom: "40px solid " + courseList[value - 1].bgColor,
+                        borderBottom: "40px solid #fff",
                         width: "0px",
                         height: "0px",
                         left: "30%"
@@ -529,24 +611,21 @@ export default function CourseDetail() {
                 }}
               >
                 {courseList.map(item => {
-
                   return (<AntTab
                     key={item.value}
                     label={
                       <div
                         style={{
                           borderBottom: value === item.value ? "3px solid #fff" : "3px solid #33ccff",
-                          margin: "0.5rem 0",
-                          paddingBottom: "0.3rem",
                           color: value === item.value ? "#fff" : "#000",
-                          minWidth: "8.0rem"
                         }}
+                        className={classes.tabLable}
                       >
                         <div
-                          style={{ fontSize: "1.3rem", fontWeight: "1000", lineHeight: "1.3rem" }}
+                          className={classes.tabTitle}
                         >{item.title}</div>
                         <div
-                          style={{ fontSize: "1.0rem", fontWeight: "300", lineHeight: "1.2rem" }}
+                          className={classes.tabTitleen}
                         >{item.title_en}</div>
                       </div>}
                     value={item.value}
@@ -567,18 +646,22 @@ export default function CourseDetail() {
                       key={item.value}
                       value={item.value}
                       style={{
-                        backgroundColor: item.bgColor,
-                        borderRadius: "5rem",
+                        backgroundColor: "#fff",
+                        borderRadius: "3rem",
                         padding: "5%"
                       }}
                     >
                       <Grid container >
-                        <Grid item xs={12} sm={12} md={6} style={{ padding: "0px 5%" }}>
+                        <Grid item xs={12} sm={12} md={6} className={classes.tabImg}>
                           <img src={item.imgsrc} width="100%" alt="" style={{ borderRadius: "10px" }} />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6}>
                           <div className={classes.description}>
-                            <div className={classes.descriptionTitle}>{item.descriptionTitle}</div>
+                            <div
+                              className={classes.descriptionTitle}
+                              style={{
+                                color: item.borderColor,
+                              }}>{item.descriptionTitle}</div>
                             <div className={classes.descriptionSubTitle}>{item.descriptionSubTitle}</div>
                             <div className={classes.descriptionText}>{item.text}</div>
                           </div>
@@ -595,15 +678,15 @@ export default function CourseDetail() {
                             return (
                               <Grid
                                 key={subitem.title}
-                                item xs={12} sm={12} md={3} >
-                                <div style={{
-                                  border: "2px solid " + item.borderColor,
-                                  borderRadius: "10px",
-                                  padding: "5%",
-                                  height: "100%"
-                                }}>
+                                item xs={12} sm={6} md={3} >
+                                <div 
+                                className={classes.subItemStyle}
+                                  style={{
+                                    border: "2px solid " + item.borderColor,
+                                  }}
+                                >
                                   <div style={{ textAlign: "center" }}>
-                                    <img src={subitem.iconImg} alt="" width="40%" />
+                                    <img src={subitem.iconImg} alt=""  className={classes.subItemImgStyle}/>
                                   </div>
                                   <div className={classes.descriptionChildrenTitle}
                                     style={{ color: item.borderColor }}
