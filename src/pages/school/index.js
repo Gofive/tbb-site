@@ -331,7 +331,6 @@ export default function School() {
                           <Typography className={classes.title} variant="h5" component="h5">
                             {item.title}
                           </Typography>
-
                           <Typography className={classes.description} gutterBottom variant="h6" component="p">
                             {item.description}
                           </Typography>
@@ -345,15 +344,9 @@ export default function School() {
 
                 })
               }
-
-
             </Grid>
-
           </SectionContent>
-
         </SectionModule>
-
-
         <SectionModule>
           <SectionTitle>
             <span>宝贝的成长中心</span>

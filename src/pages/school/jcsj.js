@@ -2,9 +2,10 @@ import React from "react";
 import Container from "@material-ui/core/Container";
 import Grid from '@material-ui/core/Grid'
 import Box from "@material-ui/core/Box";
-import { styled } from "@material-ui/core"; 
-import { withStyles } from '@material-ui/core/styles';
-import Zmage from 'react-zmage'
+import { styled } from "@material-ui/core";
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
@@ -44,6 +45,45 @@ import pxhd4img from '../../assets/school/jcsj/pxhd/4.jpg'
 
 
 
+
+const useStyles = makeStyles({
+  tabLable: {
+
+    "@media (max-width: 900px)": {
+      margin: "0.3rem 0",
+      paddingBottom: "0.2rem",
+      minWidth: "5.0rem"
+    },
+    "@media (min-width: 901px)": {
+      margin: "0.5rem 0",
+      paddingBottom: "0.3rem",
+      minWidth: "8.0rem"
+    },
+
+  },
+  tabTitle: {
+
+    "@media (max-width: 900px)": {
+      fontSize: "0.6rem",
+      fontWeight: "1000",
+      lineHeight: "1.2rem"
+    },
+    "@media (min-width: 901px)": {
+      fontSize: "1.3rem",
+      fontWeight: "1000",
+      lineHeight: "1.9rem"
+    },
+  },
+  tabImg: {
+
+    "@media (max-width: 900px)": {
+      padding: "2% 2%"
+    },
+    "@media (min-width: 901px)": {
+      padding: "2% 5%"
+    },
+  },
+})
 
 const AntTab = withStyles((theme) => ({
   root: {
@@ -157,6 +197,8 @@ const picList = [
 ]
 
 export default function JcsjDetail() {
+
+  const classes = useStyles();
   const [value, setValue] = React.useState("1");
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -206,14 +248,12 @@ export default function JcsjDetail() {
                       <div
                         style={{
                           borderBottom: value === item.value ? "3px solid #fff" : "3px solid #33ccff",
-                          margin: "1.0rem 0",
-                          paddingBottom: "0.5rem",
                           color: value === item.value ? "#fff" : "#000",
-                          minWidth: "6.0rem"
                         }}
+                        className={classes.tabLable}
                       >
                         <div
-                          style={{ fontSize: "1.3rem", fontWeight: "1000", lineHeight: "1.5rem" }}
+                          className={classes.tabTitle}
                         >{item.title}</div>
                       </div>}
                     value={item.value}
@@ -251,27 +291,21 @@ export default function JcsjDetail() {
                             <Grid
                               key={index}
                               item xs={12} sm={12} md={4} >
-                              <div style={{
-                                padding: "2% 5%",
-                                height: "100%"
-                              }}>
-                                <Zmage
-                                  controller={{
-                                    close: true,
-                                    zoom: false,
-                                    download: false,
-                                    rotate: false,
-                                    flip: false,
-                                    pagination: false,
-                                  }}
-                                  backdrop="#ffffffee"
-                                  edge={200}
-                                  radius={5}
-                                  src={subitem}
-                                  width="100%"
-                                  style={{
-                                    borderRadius: "1rem",
-                                  }} />
+                              <div
+                                className={classes.tabImg}>
+                                <Zoom
+                                  zoomMargin={100}
+                                  transitionDuration={200}
+                                  overlayBgColorEnd="rgba(255, 255, 255, 0.85)"
+                                >
+                                  <img
+                                    alt=""
+                                    src={subitem}
+                                    width="100%"
+                                    style={{
+                                      borderRadius: "1rem",
+                                    }} />
+                                </Zoom>
                               </div>
                             </Grid>
                           )

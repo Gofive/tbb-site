@@ -164,7 +164,23 @@ const useStyles = makeStyles({
     lineHeight: "1.6rem",
     letterSpacing: "0.1rem",
   },
+  kctxImg: {
 
+    "@media (max-width: 900px)": {
+      width: "auto",
+      height: "auto",
+      maxWidth: "100%",
+      maxHeight: "300px",
+      margin:"0 auto"
+    },
+    "@media (min-width: 901px)": {
+      width: "auto",
+      height: "auto",
+      maxWidth: "100%",
+      maxHeight: "100%",
+      margin:"0 auto"
+    },
+  },
   tabLable: {
 
     "@media (max-width: 900px)": {
@@ -192,13 +208,13 @@ const useStyles = makeStyles({
       lineHeight: "1.9rem"
     },
   },
-  tabImg:{
+  tabImg: {
 
     "@media (max-width: 900px)": {
-      padding:"0 2%"
+      padding: "0 2%"
     },
     "@media (min-width: 901px)": {
-      padding:"0 5%"
+      padding: "0 5%"
     },
   },
   tabTitleen: {
@@ -225,7 +241,7 @@ const useStyles = makeStyles({
       padding: "5%",
     },
   },
-  subItemImgStyle:{
+  subItemImgStyle: {
     "@media (max-width: 900px)": {
       width: "25%",
     },
@@ -255,7 +271,8 @@ const useStyles = makeStyles({
     fontSize: "0.8rem",
     letterSpacing: "0.1rem",
     lineHeight: "1.5rem"
-  }
+  },
+
 });
 
 
@@ -578,7 +595,10 @@ export default function CourseDetail() {
           </div>
           <SectionContent>
             <Grid container >
-              <img src={kctximg} alt="" width="100%" />
+              <img
+                src={kctximg} alt=""
+                className={classes.kctxImg}
+              />
             </Grid>
           </SectionContent>
 
@@ -679,14 +699,14 @@ export default function CourseDetail() {
                               <Grid
                                 key={subitem.title}
                                 item xs={12} sm={6} md={3} >
-                                <div 
-                                className={classes.subItemStyle}
+                                <div
+                                  className={classes.subItemStyle}
                                   style={{
                                     border: "2px solid " + item.borderColor,
                                   }}
                                 >
                                   <div style={{ textAlign: "center" }}>
-                                    <img src={subitem.iconImg} alt=""  className={classes.subItemImgStyle}/>
+                                    <img src={subitem.iconImg} alt="" className={classes.subItemImgStyle} />
                                   </div>
                                   <div className={classes.descriptionChildrenTitle}
                                     style={{ color: item.borderColor }}
