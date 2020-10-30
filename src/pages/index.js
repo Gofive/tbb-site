@@ -3,8 +3,10 @@ import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { pink, amber, purple } from "@material-ui/core/colors";
+import { navigate } from "gatsby";
 
 export default function About() {
+ 
   const [size, setSize] = useState({ x: 0, y: 0 });
   const ResizeFunc = useCallback(() => {
     if (window === undefined)

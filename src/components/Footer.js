@@ -33,7 +33,7 @@ function Footer() {
   return (
     <BgBox>
       <Container maxWidth='lg'>
-        <Grid container spacing={3}>
+        <Grid container spacing={3} style={{display:"none"}}>
           <Grid item xs={12} md={6} lg={3}>
             <FtItem main={1} component='p'>
               公司地址

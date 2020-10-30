@@ -30,9 +30,9 @@ const SectionTitleStyle = styled(Box)({
 
 const SectionSubTitleStyle = styled(Box)({
     textAlign: "center",
-    fontWeight: "700",
+    fontWeight: "500",
     "@media (max-width: 900px)": {
-        fontSize: "1.2rem",
+        fontSize: "0.8rem",
         letterSpacing: "0.12rem",
     },
     "@media (min-width: 901px)": {

@@ -148,8 +148,8 @@ const useStyles = makeStyles({
     fontWeight: 1000,
 
     "@media (max-width: 900px)": {
-      fontSize: "1.2rem",
-      letterSpacing: "0.11rem",
+      fontSize: "1.3rem",
+      letterSpacing: "0.08rem",
     },
     "@media (min-width: 901px)": {
       fontSize: "1.5rem",
@@ -158,11 +158,20 @@ const useStyles = makeStyles({
 
   },
   descriptionSubTitle: {
-    fontWeight: 800,
-    color: "#000",
-    fontSize: "0.8rem",
-    lineHeight: "1.6rem",
-    letterSpacing: "0.1rem",
+    "@media (max-width: 900px)": {
+      fontWeight: 500,
+      color: "#000",
+      fontSize: "0.8rem",
+      lineHeight: "1.6rem",
+      letterSpacing: "0.1rem",
+    },
+    "@media (min-width: 901px)": {
+      fontWeight: 500,
+      color: "#000",
+      fontSize: "0.8rem",
+      lineHeight: "1.6rem",
+      letterSpacing: "0.1rem",
+    },
   },
   kctxImg: {
 
@@ -198,7 +207,7 @@ const useStyles = makeStyles({
   tabTitle: {
 
     "@media (max-width: 900px)": {
-      fontSize: "0.6rem",
+      fontSize: "0.8rem",
       fontWeight: "1000",
       lineHeight: "1.2rem"
     },
@@ -297,7 +306,8 @@ const AntTabs = withStyles({
       borderBottom: '1px solid #e8e8e8',
     },
     scroller: {
-      overflow: "hidden !important"
+      overflowX: "auto !important",
+      overflowY: "hidden !important"
     }
   },
   "@media (min-width: 901px)": {
@@ -595,10 +605,12 @@ export default function CourseDetail() {
           </div>
           <SectionContent>
             <Grid container >
+              <Grid item xs={12} sm={12} md={12}>
               <img
                 src={kctximg} alt=""
                 className={classes.kctxImg}
               />
+              </Grid>
             </Grid>
           </SectionContent>
 

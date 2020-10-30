@@ -23,7 +23,7 @@
     "video-react": "^0.14.1"
   },
   "scripts": {
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -H 0.0.0.0 -p 80 -o",
     "build": "gatsby build",
     "serve": "gatsby serve -H 0.0.0.0 -p 80 -o",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"

@@ -144,8 +144,7 @@ const jsList = [
   js6img,
 ]
 const xsfList = [
-  xsf1img,
-  xsf2img,
+  xsf1img, 
   xsf3img,
   xsf4img,
 ]

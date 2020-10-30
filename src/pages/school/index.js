@@ -54,6 +54,11 @@ import 'video-react/dist/video-react.css';
 
 const useStyles = makeStyles({
 
+  container: {
+    "@media (max-width: 900px)": {
+      backgroundColor: "#f6f6f6"
+    }
+  },
   companyIntro: {
     display: "flex",
     justifyContent: "center",
@@ -65,7 +70,8 @@ const useStyles = makeStyles({
 
     "@media (max-width: 900px)": {
 
-      fontSize: "0.7rem",
+      fontWeight: 200,
+      fontSize: "0.75rem",
       letterSpacing: "0.1rem",
       lineHeight: "1.2rem",
     },
@@ -85,24 +91,38 @@ const useStyles = makeStyles({
     },
 
   },
+  cardGrid: {
+    margin: "0px auto  35px  auto"
+  },
 
   card: {
     maxWidth: 350,
-    margin: "0px auto 35px auto",
-    border: "0",
-    boxShadow: "0px 0px 0px 0px rgba(0,0,0,0)",
-    backgroundColor: "#fafafa",
-    cursor: "pointer"
+    cursor: "pointer",
+    height: "100%",
+
+    "@media (min-width: 901px)": {
+      border: "0",
+      boxShadow: "0px 0px 0px 0px rgba(0,0,0,0)",
+      backgroundColor: "#fafafa",
+    },
+    "@media (max-width: 900px)": {
+      border: "0.7px solid rgba(0,0,0,0.05)",
+      boxShadow: "0px 2px 2px 0px rgba(0,0,0,0.05)",
+      borderRadius: "1rem",
+
+      backgroundColor: "#fff",
+    },
+
 
   },
   img: {
     "@media (max-width: 900px)": {
-      height: 250,
+      minHeight: 250,
+      backgroundPosition: "center",
     },
     "@media (min-width: 901px)": {
       height: 300,
     },
-    borderRadius: "1rem"
   },
   zxcard: {
     maxWidth: 650,
@@ -119,7 +139,7 @@ const useStyles = makeStyles({
     "@media (min-width: 901px)": {
       height: 400,
     },
-    
+
   },
   title: {
     fontWeight: 1000,
@@ -135,17 +155,42 @@ const useStyles = makeStyles({
       letterSpacing: "0.15rem",
     },
   },
+  cardContent: {
+
+    "@media (max-width: 900px)": {
+      padding: "5px",
+    },
+    "@media (min-width: 901px)": {
+      padding: "13px"
+    },
+  },
   description: {
-    color: "#33ccff",
-    textAlign: "center",
-    fontSize: "1.1rem",
-    letterSpacing: "0.11rem",
+    "@media (max-width: 900px)": {
+      color: "#33ccff",
+      fontSize: "0.9rem",
+      textAlign: "center",
+    },
+    "@media (min-width: 901px)": {
+      color: "#33ccff",
+      textAlign: "center",
+      fontSize: "1.1rem",
+      letterSpacing: "0.11rem",
+    },
   },
   descriptiontext: {
-    fontWeight: 400,
-    fontSize: "1.0rem",
-    letterSpacing: "0.1rem",
-    lineHeight: "1.5rem"
+    "@media (max-width: 900px)": {
+      fontWeight: 200,
+      fontSize: "0.75rem",
+      letterSpacing: "0.05rem",
+      lineHeight: "1.2rem"
+    },
+    "@media (min-width: 901px)": {
+      textIndent: "2rem",
+      fontWeight: 400,
+      fontSize: "1.0rem",
+      letterSpacing: "0.1rem",
+      lineHeight: "1.5rem"
+    },
   },
 
 });
@@ -292,7 +337,7 @@ export default function School() {
           <div>0551-63533400</div>
         </div>
       </FixedBox>
-      <Container maxWidth='lg'>
+      <Container maxWidth='lg' className={classes.container}>
 
         <SectionModule>
           <Grid container >
@@ -317,17 +362,17 @@ export default function School() {
           </SectionTitle>
           <SectionContent>
 
-            <Grid container >
+            <Grid container spacing={2}>
               {
                 courseList.map(item => {
                   return (
-                    <Grid item xs={12} sm={4} md={4} key={item.title}>
-                      <Card className={classes.card} onClick={() => navigate("/school/coursedetail")} >
+                    <Grid item xs={12} sm={4} md={4} key={item.title} className={classes.cardGrid}>
+                      <Card className={classes.card} onClick={() => navigate("/school/coursedetail")}>
                         <CardMedia
                           className={classes.img}
                           image={item.imgsrc}
                         />
-                        <CardContent>
+                        <CardContent className={classes.cardContent}>
                           <Typography className={classes.title} variant="h5" component="h5">
                             {item.title}
                           </Typography>
@@ -364,7 +409,7 @@ export default function School() {
                         >
                           <CardMedia
                             className={classes.zximg}
-                            image={item.imgsrc} 
+                            image={item.imgsrc}
                           />
                           <CardContent>
                             <Typography className={classes.title} variant="h5" component="h5">
@@ -382,19 +427,19 @@ export default function School() {
         </SectionModule>
         <SectionModule>
           <SectionTitle>
-            <span>豚宝宝共获43项大奖</span>
+            <span>豚宝宝共获<span style={{ color: "#ff9933" }}>43</span>项大奖</span>
             <SectionSubTitle>其中<span style={{ color: "#ff9933" }}>27项</span>为国家级奖项，<span style={{ color: "#ff9933" }}>16项</span>为省一级奖项</SectionSubTitle>
           </SectionTitle>
           <SectionContent>
             <div>
-              <Grid container spacing={4}>
+              <Grid container spacing={2}>
                 {
                   honorList.map(item => {
                     return (
-                      <Grid item xs={6} sm={4} md={3} key={item} style={{ textAlign: "center" }}>
+                      <Grid item xs={4} sm={4} md={3} key={item} style={{ textAlign: "center" }}>
                         <img
                           src={item}
-                          width="90%"
+                          width="100%"
                           alt=""
                           style={{
                             borderRadius: "1rem",

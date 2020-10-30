@@ -1,19 +1,19 @@
 const routers = [
   {
-    name: "关于我们",
-    link: "/about",
-  },
-  {
-    name: "成长中心",
+    name: "首页",
     link: "/school",
   },
   {
-    name: "幼儿教育",
-    link: "/course",
+    name: "早教课程",
+    link: "/school/coursedetail",
   },
   {
-    name: "妙趣周边",
-    link: "/404",
+    name: "我们的教室",
+    link: "/school/wmdjs",
+  },
+  {
+    name: "精彩瞬间",
+    link: "/school/jcsj",
   },
   {
     name: "联系我们",

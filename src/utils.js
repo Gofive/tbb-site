@@ -9,9 +9,9 @@ import routers from "./routers";
 
 export function tabIndexByLocation(pathname) {
   if (pathname === "/") {
-    return false;
+    return 1;
   }
-  const index = routers.findIndex((a) => pathname.startsWith(a.link));
+  const index = routers.findIndex((a) => pathname === (a.link)||pathname === (a.link+"/"));
   return index > -1 ? index + 1 : false;
 }
 
