@@ -9,6 +9,7 @@ import {
   Box,
   Button,
 } from "@material-ui/core";
+import logo from "../assets/logo.png"
 import { ReactComponent as LogoSvg } from "../assets/logo-single.svg";
 import { Close, Dehaze } from "@material-ui/icons";
 import { blue, grey } from "@material-ui/core/colors";
@@ -138,7 +139,7 @@ export default function MobileHeader({ tabval }) {
   const [expanded, setExpanded] = React.useState(false);
 
   const memoizedCallback = React.useCallback(() => {
-    
+
     if (window === undefined)
       return;
     if (window.scrollY > 5) {
@@ -172,7 +173,14 @@ export default function MobileHeader({ tabval }) {
           aria-controls='panel1a-content'
           id='panel1a-header'>
           <Logo alpha={alpha} onClick={() => navigate("/")}>
-            <LogoSvg fill={alpha ? blue[400] : "white"} width={140} height={60} />
+            <div style={{ width: "90%", height: "90%", margin: "0 auto" }}>
+              <img
+                src={logo}
+                style={{ transition: "all .3s ease-in-out 0s" }}
+                fill={"blue"}
+                width="100%"
+              />
+            </div>
           </Logo>
           <LangBox>
             <LangSwitcher />

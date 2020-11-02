@@ -1,7 +1,7 @@
 const routers = [
   {
     name: "首页",
-    link: "/school",
+    link: "/",
   },
   {
     name: "早教课程",

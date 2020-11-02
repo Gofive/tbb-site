@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, Tabs, Tab, useTheme, withStyles, styled } from "@material-ui/core";
 import { ReactComponent as LogoSvg } from "../assets/logo-single.svg";
+import logo from "../assets/logo.png"
+
 import { blue, grey } from "@material-ui/core/colors";
 import routers from "../routers";
 import { navigate } from "gatsby";
@@ -34,7 +36,7 @@ const HeaderMain = styled(Box)({
 });
 
 const Logo = styled(Box)({
-  width: 160,
+  width: 200,
   height: 80,
   transition: "all .3s ease-in-out 0s",
   backgroundColor: (props) => (props.alpha ? "transparent" : blue[400]),
@@ -113,12 +115,14 @@ export default function Header({ tabval }) {
     <HeaderDiv alpha={alpha}>
       <HeaderMain>
         <Logo alpha={alpha} onClick={() => navigate("/")}>
-          <LogoSvg
-            style={{ transition: "all .3s ease-in-out 0s" }}
-            fill={alpha ? blue[400] : "white"}
-            width={160}
-            height={70}
-          />
+          <div style={{ width: "80%", height: "90%", margin: "0 auto" }}>
+            <img
+              src={logo}
+              style={{ transition: "all .3s ease-in-out 0s" }}
+              fill={"blue"}
+              width="100%"
+            />
+          </div>
         </Logo>
         <StyledTabs
           value={!tabval ? false : tabval - 1}
