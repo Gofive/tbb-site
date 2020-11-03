@@ -84,7 +84,7 @@ const useStyles = makeStyles({
       fontWeight: 200,
       fontSize: "0.75rem",
       letterSpacing: "0.1rem",
-      lineHeight: "1.2rem",
+      lineHeight: "1.2rem", 
     },
     "@media (min-width: 901px)": {
 

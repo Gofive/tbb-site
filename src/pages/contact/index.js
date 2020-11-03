@@ -50,10 +50,10 @@ const useStyles = makeStyles({
     },
 
   },
-  address: {
+  telephone: {
     "@media (max-width: 900px)": {
       fontWeight: "500",
-      textAlign: "center",
+      textAlign: "left",
       color: "#000",
       fontSize: "0.5rem",
       letterSpacing: "0.1rem",
@@ -68,10 +68,10 @@ const useStyles = makeStyles({
       lineHeight: "3.5rem"
     },
   },
-  telephone: {
+  address: {
     "@media (max-width: 900px)": {
       fontWeight: "500",
-      textAlign: "center",
+      textAlign: "left",
       color: "#000",
       fontSize: "0.5rem",
       letterSpacing: "0.1rem",
@@ -102,7 +102,7 @@ const useStyles = makeStyles({
     },
   },
   xiaochengxu: {
-    
+
     "@media (max-width: 900px)": {
       fontSize: "0.8rem",
       fontWeight: "500"
@@ -164,15 +164,15 @@ export default function Contact() {
           infoList.map(
             item => {
               return (
-                <SectionContent>
+                <SectionContent key={item.title}>
                   <div className={classes.title}>
                     &bull;{item.title}&bull;
                 </div>
-                  <div className={classes.address}>
-                    {item.address}
-                  </div>
                   <div className={classes.telephone}>
                     {item.telphone}
+                  </div>
+                  <div className={classes.address}>
+                    {item.address}
                   </div>
                   <div className={classes.addressImg}>
                     <img src={item.addressImg} width="100%" alt="" />
@@ -190,8 +190,8 @@ export default function Contact() {
         <span style={{ display: "block" }}>了解我们</span>
         <span className={classes.sectionDivider}></span>
       </SectionTitle>
-      <Grid container justify="center" alignItems="center" style={{ maxWidth: "50rem", margin: "0 auto", marginTop: "3rem"  }}>
-        <Grid item xs={4} sm={4} style={{ textAlign: "center", padding: "2%",borderRight:"1px solid #0002" }}>
+      <Grid container justify="center" alignItems="center" style={{ maxWidth: "50rem", margin: "0 auto", marginTop: "3rem" }}>
+        <Grid item xs={4} sm={4} style={{ textAlign: "center", padding: "2%", borderRight: "1px solid #0002" }}>
           <img
             src={wechatimg}
             width="70%"
@@ -201,9 +201,9 @@ export default function Contact() {
             }}
           />
           <div className={classes.xiaochengxu}>豚宝宝小程序</div>
-        </Grid> 
+        </Grid>
 
-        <Grid item xs={4} sm={4} style={{ textAlign: "center", padding: "2%" ,borderRight:"1px solid #0002" }}>
+        <Grid item xs={4} sm={4} style={{ textAlign: "center", padding: "2%", borderRight: "1px solid #0002" }}>
           <img
             src={tel1}
             width="70%"
@@ -211,7 +211,7 @@ export default function Contact() {
           />
           <div className={classes.lijiewomen}>0551-63539599</div>
         </Grid>
- 
+
         <Grid item xs={4} sm={4} style={{ textAlign: "center", padding: "2%" }}>
           <img
             src={tel2}

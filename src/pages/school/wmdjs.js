@@ -51,7 +51,7 @@ tabLable: {
 tabTitle: {
 
   "@media (max-width: 900px)": {
-    fontSize: "0.6rem",
+    fontSize: "0.8rem",
     fontWeight: "1000",
     lineHeight: "1.2rem"
   },
