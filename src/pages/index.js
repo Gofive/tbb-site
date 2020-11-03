@@ -207,7 +207,7 @@ const useStyles = makeStyles({
 
 const SliderBox = styled(Box)({
   "@media (max-width: 900px)": {
-    height: "200px"
+    height: "180px"
   },
   "@media (min-width: 900px)": {
     height: "400px"
@@ -220,7 +220,7 @@ const CarouselItem = styled("img")({
   objectFit: "cover",
   cursor: "default",
   "@media (max-width: 900px)": {
-    height: "200px"
+    height: "180px"
   },
   "@media (min-width: 900px)": {
     height: "400px"

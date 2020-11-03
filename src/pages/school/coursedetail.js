@@ -180,14 +180,14 @@ const useStyles = makeStyles({
       height: "auto",
       maxWidth: "100%",
       maxHeight: "300px",
-      margin:"0 auto"
+      margin: "0 auto"
     },
     "@media (min-width: 901px)": {
       width: "auto",
       height: "auto",
       maxWidth: "100%",
       maxHeight: "100%",
-      margin:"0 auto"
+      margin: "0 auto"
     },
   },
   tabLable: {
@@ -261,11 +261,13 @@ const useStyles = makeStyles({
   ,
   descriptionText: {
     paddingTop: "1.0rem",
-    textIndent: "2rem",
     fontWeight: 300,
     fontSize: "0.9rem",
     letterSpacing: "0.1rem",
     lineHeight: "1.5rem"
+  },
+  descriptionTextItem: {
+    textIndent: "2rem",
   },
   descriptionChildrenTitle: {
     fontWeight: 1000,
@@ -357,7 +359,7 @@ const courseList = [
     descriptionSubTitle: "——专属于6-36个月宝宝的感统体适能训练课",
     bgColor: "#f0fff0",
     borderColor: "#009933",
-    text: "豚宝宝欢乐课以著名的“脑科学”为理论依据，以感觉统合训练为基础，体适能训练为核心，设计出符合婴幼儿身心发展规律的感统体适能训练课程，让孩子获得与身体健康相关的核心经验，包括身体控制与平衡能力、身体移动能力、器械（具）控制能力、生活自理能力、自我保护能力。",
+    text: ["豚宝宝欢乐课以著名的“脑科学”为理论依据，以感觉统合训练为基础，体适能训练为核心，设计出符合婴幼儿身心发展规律的感统体适能训练课程，让孩子获得与身体健康相关的核心经验，包括身体控制与平衡能力、身体移动能力、器械(具)控制能力、生活自理能力、自我保护能力。"],
     subText: [
       {
         iconImg: hlkp1img,
@@ -390,7 +392,8 @@ const courseList = [
     descriptionSubTitle: "——专属于12-36个月宝宝的音乐启蒙和感知训练课",
     bgColor: "#faf0e6",
     borderColor: "#ff6600",
-    text: "皮亚杰说：\"儿童早期的社会行为处于自我中心和真正的社会化之间的中间地位， 只有当他们从自我中心状态中解脱出来，具备了与同伴进行有效的协作的能力，社会化便进入一个新阶段。\"而在这一过程当中，音乐教育起到了重要的推动作用。豚宝宝音乐课程融入德国奥尔夫世界级音乐，研发出符合中国宝宝的音乐启蒙和感知训练课程，内容融入五大洲12个国家主题音乐、经典电影音乐、全球知名歌手，培养宝宝早期乐感，同时促进脑部胼胝（pianzhi)体的发育，有效提高宝宝思维敏捷度，俗称记性好、反应快。让宝宝更加喜爱音乐，成为阳光快乐的宝宝。",
+    text: ["皮亚杰说：\"儿童早期的社会行为处于自我中心和真正的社会化之间的中间地位， 只有当他们从自我中心状态中解脱出来，具备了与同伴进行有效的协作的能力，社会化便进入一个新阶段。\"而在这一过程当中，音乐教育起到了重要的推动作用。",
+      "豚宝宝音乐课程融入德国奥尔夫世界级音乐，研发出符合中国宝宝的音乐启蒙和感知训练课程，内容融入五大洲12个国家主题音乐、经典电影音乐、全球知名歌手，培养宝宝早期乐感，同时促进脑部胼胝(pianzhi)体的发育，有效提高宝宝思维敏捷度，俗称记性好、反应快。让宝宝更加喜爱音乐，成为阳光快乐的宝宝。"],
     subText: [
       {
         iconImg: yykp1img,
@@ -423,7 +426,8 @@ const courseList = [
     descriptionSubTitle: "——专属于1.5-6岁宝宝的艺术创意课",
     bgColor: "#ffffe0",
     borderColor: "#ff9933",
-    text: "当代艺术教育过细的划分，使孩子在艺术视野和想象力上受到很大局限，艺术教育应该以遵循孩子身心发展为基础，保护孩子想象力，提高孩子综合艺术素养，而不是按照模式化去培养和塑造孩子。艺术课程基于当代先进的“大美术”艺术教育观念，根据幼儿美术发展的年龄特点，提供丰富的材料和多种艺术表现手法，旨在萌发对美的感受和体验。让幼儿创意潜能得到激发，创作出自己的艺术世界。",
+    text: ["当代艺术教育过细的划分，使孩子在艺术视野和想象力上受到很大局限，艺术教育应该以遵循孩子身心发展为基础，保护孩子想象力，提高孩子综合艺术素养，而不是按照模式化去培养和塑造孩子。",
+      "艺术课程基于当代先进的“大美术”艺术教育观念，根据幼儿美术发展的年龄特点，提供丰富的材料和多种艺术表现手法，旨在萌发对美的感受和体验。让幼儿创意潜能得到激发，创作出自己的艺术世界。"],
     subText: [
       {
         iconImg: yskp1img,
@@ -456,7 +460,7 @@ const courseList = [
     descriptionSubTitle: "——专属于2-6岁宝宝的语言、社交(情商)课",
     bgColor: "#f0f8ff",
     borderColor: "#0099cc",
-    text: "豚宝宝语言情商课程根据儿童语言发展规律，实施最新国际情商标准，通过绘本阅读、朗诵表演、话剧表演、创意写画等表现形式，让孩子获得与社会交往、语言表达相关的核心经验，包括：情绪管理、人际交往、自信心、独立性、口语表达、自主阅读、文学语汇、识字书写等能力。",
+    text: ["豚宝宝语言情商课程根据儿童语言发展规律，实施最新国际情商标准，通过绘本阅读、朗诵表演、话剧表演、创意写画等表现形式，让孩子获得与社会交往、语言表达相关的核心经验，包括：情绪管理、人际交往、自信心、独立性、口语表达、自主阅读、文学语汇、识字书写等能力。"],
     subText: [
       {
         iconImg: yyqsp1img,
@@ -489,7 +493,8 @@ const courseList = [
     descriptionSubTitle: "——专属于2.5-6岁宝宝的科学启蒙课",
     bgColor: "#f0fff0",
     borderColor: "#99cc33",
-    text: "课程引入国际先进的STEAM教育理念，将科学、技术、工程、艺术和数学进行跨学科融合，通过项目探究的综合创新形式，培养孩子如同科学家一样的探究意识，建立好奇心，培养孩子发现问题、独立思考、动手创造、沟通合作及解决问题的综合能力。本课程以问题为导向，以情境引探究。通过生动有趣的教学情境引导幼儿对问题进行探究，思考解决方案，并设计项目作品。在解决问题的过程中，掌握所需知识，培养综合创新实践能力。",
+    text: ["课程引入国际先进的STEAM教育理念，将科学、技术、工程、艺术和数学进行跨学科融合，通过项目探究的综合创新形式，培养孩子如同科学家一样的探究意识，建立好奇心，培养孩子发现问题、独立思考、动手创造、沟通合作及解决问题的综合能力。",
+      "本课程以问题为导向，以情境引探究。通过生动有趣的教学情境引导幼儿对问题进行探究，思考解决方案，并设计项目作品。在解决问题的过程中，掌握所需知识，培养综合创新实践能力。"],
     subText: [
       {
         iconImg: steamp1img,
@@ -522,7 +527,8 @@ const courseList = [
     descriptionSubTitle: "——专属于1-6岁宝宝的户外探索体验课",
     bgColor: "#e0ffff",
     borderColor: "#009999",
-    text: "“自然缺失症”这一概念，由美国记者兼儿童权益倡导者理查德·洛夫在《林间最后的小孩》一书中提出。自然缺失症不是一种需要医生诊断或需要服药治疗的病症，而是当今社会的一种危险的现象，即儿童在大自然中度过的时间越来越少，从而导致了一系列行为和心理上的问题。针对这样的现象，医生和专家都呼吁，父母要多带孩子到户外进行科学探索活动，让孩子接触多元的环境，开阔视野，接触大自然。激发孩子的求知欲，同时增进亲子之间的感情，让孩子爱上户外活动。",
+    text: ["“自然缺失症”这一概念，由美国记者兼儿童权益倡导者理查德·洛夫在《林间最后的小孩》一书中提出。自然缺失症不是一种需要医生诊断或需要服药治疗的病症，而是当今社会的一种危险的现象，即儿童在大自然中度过的时间越来越少，从而导致了一系列行为和心理上的问题。",
+      "针对这样的现象，医生和专家都呼吁，父母要多带孩子到户外进行科学探索活动，让孩子接触多元的环境，开阔视野，接触大自然。激发孩子的求知欲，同时增进亲子之间的感情，让孩子爱上户外活动。"],
     subText: [
       {
         iconImg: xyjp1img,
@@ -582,10 +588,7 @@ export default function CourseDetail() {
               <Grid item xs={9} sm={9} md={9}>
                 <div className={classes.companyIntro}>
                   <p className={classes.companyIntroP}>
-                    豚宝宝坚持“遵循天性，科学育儿”的育儿理念，以世
-                    界领先的“脑科学”为依据，结合孩子的关键期和敏
-                    感期，用游戏化教学手法，在适合的时候给予孩子适合
-                    的教育，孩子在这里不但能快乐成长，更能快乐成才。
+                    豚宝宝坚持“遵循天性，科学育儿”的育儿理念，以世界领先的“脑科学”为依据，结合孩子的关键期和敏感期，用游戏化教学手法，在适合的时候给予孩子适合的教育，孩子在这里不但能快乐成长，更能快乐成才。
                   </p>
                 </div>
               </Grid>
@@ -606,10 +609,10 @@ export default function CourseDetail() {
           <SectionContent>
             <Grid container >
               <Grid item xs={12} sm={12} md={12}>
-              <img
-                src={kctximg} alt=""
-                className={classes.kctxImg}
-              />
+                <img
+                  src={kctximg} alt=""
+                  className={classes.kctxImg}
+                />
               </Grid>
             </Grid>
           </SectionContent>
@@ -695,7 +698,11 @@ export default function CourseDetail() {
                                 color: item.borderColor,
                               }}>{item.descriptionTitle}</div>
                             <div className={classes.descriptionSubTitle}>{item.descriptionSubTitle}</div>
-                            <div className={classes.descriptionText}>{item.text}</div>
+                            <div className={classes.descriptionText}>
+                              {item.text.map(textitem => {
+                                return <div className={classes.descriptionTextItem}>{textitem}</div>
+                              })}
+                            </div>
                           </div>
                         </Grid>
                       </Grid>
