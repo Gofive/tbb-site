@@ -25,8 +25,7 @@ import js4img from '../../assets/school/wmdjs/js/4.jpg'
 import js5img from '../../assets/school/wmdjs/js/5.jpg'
 import js6img from '../../assets/school/wmdjs/js/6.jpg'
 
-import xsf1img from '../../assets/school/wmdjs/xsf/1.jpg'
-import xsf2img from '../../assets/school/wmdjs/xsf/2.jpg'
+import xsf1img from '../../assets/school/wmdjs/xsf/1.jpg' 
 import xsf3img from '../../assets/school/wmdjs/xsf/3.jpg'
 import xsf4img from '../../assets/school/wmdjs/xsf/4.jpg'
 

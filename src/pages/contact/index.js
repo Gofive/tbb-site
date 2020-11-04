@@ -1,12 +1,8 @@
 import React from "react";
 import Container from "@material-ui/core/Container";
-import Grid from '@material-ui/core/Grid'
-import Box from "@material-ui/core/Box";
-import { styled } from "@material-ui/core";
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Typography from "@material-ui/core/Typography";
-import { SectionModule, SectionTitle, SectionContent } from '../../components/SectionModule'
-import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid' 
+import { makeStyles } from '@material-ui/core/styles'; 
+import { SectionModule, SectionTitle, SectionContent } from '../../components/SectionModule' 
 
 
 import tel1 from "../../assets/contact/tel1.png"

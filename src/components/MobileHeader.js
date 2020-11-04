@@ -10,7 +10,6 @@ import {
   Button,
 } from "@material-ui/core";
 import logo from "../assets/logo.png"
-import { ReactComponent as LogoSvg } from "../assets/logo-single.svg";
 import { Close, Dehaze } from "@material-ui/icons";
 import { blue, grey } from "@material-ui/core/colors";
 import routers from "../routers";
@@ -49,7 +48,7 @@ const DisableFocusBt = withStyles({
 })((props) => <Button {...props} />);
 
 const Logo = styled(Box)({
-  width: 140,
+  width: 150,
   height: 80,
   backgroundColor: (props) => (props.alpha ? "transparent" : blue[400]),
   borderRadius: "100% 100% 100% 100% / 0% 0% 40% 40%",
@@ -176,8 +175,8 @@ export default function MobileHeader({ tabval }) {
             <div style={{ width: "90%", height: "90%", margin: "0 auto" }}>
               <img
                 src={logo}
-                style={{ transition: "all .3s ease-in-out 0s" }}
-                fill={"blue"}
+                alt=""
+                style={{ transition: "all .3s ease-in-out 0s" }} 
                 width="100%"
               />
             </div>

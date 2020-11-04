@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Tabs, Tab, useTheme, withStyles, styled } from "@material-ui/core";
-import { ReactComponent as LogoSvg } from "../assets/logo-single.svg";
 import logo from "../assets/logo.png"
 
 import { blue, grey } from "@material-ui/core/colors";
@@ -119,7 +118,7 @@ export default function Header({ tabval }) {
             <img
               src={logo}
               style={{ transition: "all .3s ease-in-out 0s" }}
-              fill={"blue"}
+              alt=""
               width="100%"
             />
           </div>

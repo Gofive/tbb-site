@@ -16,7 +16,6 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Divider from '@material-ui/core/Divider';
 
 import { SectionModule, SectionTitle, SectionSubTitle, SectionContent } from '../components/SectionModule'
 
@@ -84,7 +83,7 @@ const useStyles = makeStyles({
       fontWeight: 200,
       fontSize: "0.75rem",
       letterSpacing: "0.1rem",
-      lineHeight: "1.2rem", 
+      lineHeight: "1.2rem",
     },
     "@media (min-width: 901px)": {
 
@@ -133,12 +132,22 @@ const useStyles = makeStyles({
       height: 300,
     },
   },
-  zxcard: {
-    maxWidth: 650,
-    margin: "0px auto 35px auto",
-    border: "0",
-    boxShadow: "0px 0px 0px 0px rgba(0,0,0,0)",
-    backgroundColor: "#fafafa"
+  zxcard: {  
+    cursor: "pointer",
+    height: "100%",
+
+    "@media (min-width: 901px)": {
+      border: "0",
+      boxShadow: "0px 0px 0px 0px rgba(0,0,0,0)",
+      backgroundColor: "#fafafa",
+    },
+    "@media (max-width: 900px)": {
+      border: "0.7px solid rgba(0,0,0,0.05)",
+      boxShadow: "0px 2px 2px 0px rgba(0,0,0,0.05)",
+      borderRadius: "1rem",
+      backgroundColor: "#fff",
+    },
+
 
   },
   zximg: {
@@ -146,7 +155,7 @@ const useStyles = makeStyles({
       height: 250,
     },
     "@media (min-width: 901px)": {
-      height: 400,
+      height: 350,
     },
 
   },
@@ -412,12 +421,12 @@ export default function School() {
           </SectionTitle>
           <SectionContent>
 
-            <Grid container spacing={5}>
+            <Grid container spacing={4}>
               {
                 centerList.map(item => {
                   return (
                     <Grid item xs={12} sm={6} md={6} key={item.title}>
-                      <Card className={classes.card}>
+                      <Card className={classes.zxcard}>
                         <CardActionArea
                           onClick={() => navigate(item.url)}
                         >
@@ -469,41 +478,41 @@ export default function School() {
             </div>
           </SectionContent>
         </SectionModule>
+        <Hidden mdUp>
+          <Grid container justify="center" alignItems="center" >
+            <Grid item xs={4} sm={4} style={{ textAlign: "center", padding: "3%", borderRight: "1px solid #0002" }}>
+              <img
+                src={wechatimg}
+                width="70%"
+                alt=""
+                style={{
+                  borderRadius: "1rem",
+                }}
+              />
+              <div style={{ fontSize: "0.7rem" }}>豚宝宝小程序</div>
+            </Grid>
 
+            <Grid item xs={4} sm={4} style={{ textAlign: "center", padding: "3%", borderRight: "1px solid #0002" }}>
+              <img
+                src={tel1}
+                width="70%"
+                alt=""
+              />
+              <div style={{ fontSize: "0.7rem", fontWeight: "800" }}>0551-63539599</div>
+            </Grid>
+
+            <Grid item xs={4} sm={4} style={{ textAlign: "center", padding: "3%" }}>
+              <img
+                src={tel2}
+                width="70%"
+                alt=""
+              />
+              <div style={{ fontSize: "0.7rem", fontWeight: "800" }}>0551-63533400</div>
+            </Grid>
+          </Grid>
+        </Hidden>
       </Container>
-      <Hidden mdUp>
-        <Grid container justify="center" alignItems="center" >
-          <Grid item xs={4} sm={4} style={{ textAlign: "center", padding: "3%",borderRight:"1px solid #0002" }}>
-            <img
-              src={wechatimg}
-              width="90%"
-              alt=""
-              style={{
-                borderRadius: "1rem",
-              }}
-            />
-            <div style={{ fontSize: "0.7rem" }}>豚宝宝小程序</div>
-          </Grid>
 
-          <Grid item xs={4} sm={4} style={{ textAlign: "center", padding: "3%" ,borderRight:"1px solid #0002" }}>
-            <img
-              src={tel1}
-              width="90%"
-              alt=""
-            />
-            <div style={{ fontSize: "0.7rem", fontWeight: "800" }}>0551-63539599</div>
-          </Grid>
-
-          <Grid item xs={4} sm={4} style={{ textAlign: "center", padding: "3%" }}>
-            <img
-              src={tel2}
-              width="90%"
-              alt=""
-            />
-            <div style={{ fontSize: "0.7rem", fontWeight: "800" }}>0551-63533400</div>
-          </Grid>
-        </Grid>
-      </Hidden>
     </>
   );
 }
