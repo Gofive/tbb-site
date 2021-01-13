@@ -7,8 +7,7 @@ import { styled } from "@material-ui/core";
 import Carousel from "nuka-carousel";
 import { blue } from "@material-ui/core/colors";
 import { makeStyles } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { Player } from 'video-react';
+import useMediaQuery from '@material-ui/core/useMediaQuery'; 
 import { navigate } from "gatsby";
 import Hidden from '@material-ui/core/Hidden';
 
@@ -132,7 +131,7 @@ const useStyles = makeStyles({
       height: 300,
     },
   },
-  zxcard: {  
+  zxcard: {
     cursor: "pointer",
     height: "100%",
 
@@ -361,9 +360,20 @@ export default function School() {
         <SectionModule>
           <Grid container >
             <Grid item xs={12} sm={12} md={8}>
-              <Player autoPlay={true}>
+              <video width="100%"
+                height="100%"   
+                controls="true"
+                preload="auto"
+                x-webkit-airplay="allow"
+                x5-video-player-type="h5"
+                x5-video-player-fullscreen="true"
+                x5-video-orientation="portraint"
+                webkit-playsinline="true"
+                playsinline="true"  
+                muted
+              >
                 <source src={videourl} />
-              </Player>
+              </video>
             </Grid>
             <Grid item xs={12} sm={12} md={4}>
               <div className={classes.companyIntro}>
